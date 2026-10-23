@@ -1,7 +1,9 @@
+
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-// https://vite.dev/config/
+// Ottokonek Order Manager — GitHub Pages configuration
 export default defineConfig({
   plugins: [react()],
+  base: '/ottokonek-order-manager/',
 })
