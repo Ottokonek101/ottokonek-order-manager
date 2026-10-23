@@ -20,6 +20,22 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  res.setHeader(
+    'Access-Control-Allow-Origin',
+    'https://ottokonek101.github.io'
+  );
+  res.setHeader('Vary', 'Origin');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
+
 async function requireOwner(req, res, next) {
   const header = req.get('authorization') || '';
   const match = /^Bearer (\S+)$/.exec(header);
@@ -65,6 +81,6 @@ app.get('/api/orders/:id/confirm-link', requireOwner, (_req, res) => {
   res.status(501).json({ error: 'Official confirmation links are not configured yet' });
 });
 
-app.listen(Number(PORT), '127.0.0.1', () => {
+app.listen(Number(PORT), '0.0.0.0', () => {
   console.log(`Ottokonek private API listening on http://127.0.0.1:${PORT}`);
 });
