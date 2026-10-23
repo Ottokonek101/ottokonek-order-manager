@@ -82,5 +82,5 @@ app.get('/api/orders/:id/confirm-link', requireOwner, (_req, res) => {
 });
 
 app.listen(Number(PORT), '0.0.0.0', () => {
-  console.log(`Ottokonek private API listening on http://127.0.0.1:${PORT}`);
+  console.log(`Ottokonek private API listening on http://0.0.0.0:${PORT}`);
 });
