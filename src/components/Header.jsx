@@ -1,0 +1,2 @@
+import { Search, Bell, ChevronDown } from 'lucide-react'
+export default function Header({page}){return <header className="topbar"><div className="breadcrumb">Workspace <span>/</span> <strong>{page}</strong></div><div className="top-actions"><span className="status-chip"><i/> Gmail disconnected</span><span className="header-divider"/><span className="top-avatar">O</span><span className="top-account">Admin <ChevronDown size={14}/></span></div></header>}
